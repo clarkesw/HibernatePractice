@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Product {
@@ -17,12 +18,12 @@ public class Product {
     private String description;
     
     @ManyToOne //(cascade = CascadeType.ALL)
-    @JoinColumn(name = "manufacturer_props_id") //, referencedColumnName = "id")
+    @JoinColumn(name = "manufacturer_id") //, referencedColumnName = "id")
     private Manufacturer manufacturer;
     
-//    @OneToOne
-//    @JoinColumn(name = "coupon_id")
- //   private Coupon coupon;
+    @OneToOne
+    @JoinColumn(name = "coupon_id")
+    private Coupon coupon;
     private int price;
 
     public Product() {}

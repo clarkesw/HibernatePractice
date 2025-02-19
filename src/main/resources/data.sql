@@ -1,14 +1,19 @@
--- use demodb;
+INSERT INTO demodb.manufacturer (id, email, location, name, type)
+VALUES (1, 'ceo@sapple.com', 'New York, NY', 'SApple Corp.', 3); 
+INSERT INTO demodb.coupon (id, code, discount, expdate)
+VALUES (1, '502', .2, '5/5/25'); 
+INSERT INTO demodb.product (id, name, description, price, coupon_id, manufacturer_id)
+VALUES (1, 'iPhone 17', 'Lastest siPhone', 720, 1, 1); 
+INSERT INTO demodb.product (id, name, description, price, coupon_id, manufacturer_id)
+VALUES (2, 'iCar 2 Beta', 'Super Fast', 34720, null, 1);
+
 -- ALTER TABLE product
 -- ADD manufacturer varchar(255);
 
--- Product(Long id, String name, String description, Manufacturer manufacturer, Coupon coupon, int price)
--- Manufacturer(Long id, String name, ManufacturerType type, List<Product> products, String location, String email)
--- Coupon(Long id, String code, Double discount, String expdate)
-
-insert into product
-values (7500, 1, 1, 1, 'Lastest siPhone', 'si15'); 
-insert into manufacturer
-values (3, 1, 'ceo@sapple.com', 'New York, NY', 'SApple Corp.'); 
-insert into coupon
-values (.2, 1, '502', '1/5/74');  
+-- Product(id, name, description, price, coupon_id, manufacturer_id)
+-- Manufacturer(id, email, location, name, type)
+-- Coupon(id, code, discount, expdate)
+ 
+-- DROP DATABASE demodb; 
+-- create DATABASE demodb; 
+-- use demodb;

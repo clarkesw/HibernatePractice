@@ -9,8 +9,8 @@ public class Coupon {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
- //   @OneToOne(mappedBy = "coupon")
- //   private Product product;
+    @OneToOne(mappedBy = "coupon")
+    private Product product;
     
     private String code;
     private Double discount;
@@ -31,13 +31,13 @@ public class Coupon {
         this.expdate = expdate;
     }
 
-//    public Product getProduct() {
-//        return product;
-//    }
-//
-//    public void setProduct(Product product) {
-//        this.product = product;
-//    }
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
     public Long getId() {
         return id;
