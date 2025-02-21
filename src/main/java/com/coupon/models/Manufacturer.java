@@ -1,6 +1,7 @@
 package com.coupon.models;
 
 import com.coupon.enums.ManufacturerType;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,6 +17,7 @@ public class Manufacturer {
     private String name;
     private ManufacturerType type;
     
+    @JsonManagedReference
     @OneToMany(mappedBy="manufacturer")
     private List<Product> products;
     private String location;

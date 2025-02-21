@@ -1,5 +1,6 @@
 package com.coupon.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,8 +18,9 @@ public class Product {
     private String name;
     private String description;
     
-    @ManyToOne //(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "manufacturer_id") //, referencedColumnName = "id")
+    @JsonBackReference
     private Manufacturer manufacturer;
     
     @OneToOne
