@@ -1,7 +1,9 @@
 package com.coupon.models;
 
 import com.coupon.enums.ManufacturerType;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,6 +12,11 @@ import jakarta.persistence.OneToMany;
 import java.util.List;
 
 @Entity
+@JsonIdentityInfo(
+    generator = ObjectIdGenerators.PropertyGenerator.class,
+    property = "id",
+    scope = Manufacturer.class
+)
 public class Manufacturer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

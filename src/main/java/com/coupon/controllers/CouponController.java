@@ -37,31 +37,28 @@ public class CouponController {
         coupServ.saveCoupon(coupon);
     }    
     
-    @GetMapping("/get")
+    @GetMapping("/coupon")
     public List<Coupon> getCoupons() {
         logger.info("GET /get");
         return coupServ.getCoupons();
     }    
     
-    @GetMapping("/get/men")
+    @GetMapping("/man")
     public List<Manufacturer> getManufacturers() {
         logger.info("GET /get/men");
         return manServ.getManufacturers();
     }    
 
-    @GetMapping("/get/prod/{id}")
+    @GetMapping("/prod/{id}")
     public Product getProductById(@PathVariable("id") Long id) {
         logger.info("GET /get/prod/{id} " + id);
         return prodServ.findById(id);
     }   
     
-    @GetMapping("/get/prod")
+    @GetMapping("/prod")
     public List<Product> getProducts() {
         logger.info("GET /get/prod/");
         List<Product> prods = prodServ.findAll();
-        
- //       prods.stream()
- //               .forEach(System.out::println);
 
         return prods;
     }        
